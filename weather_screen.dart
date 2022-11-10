@@ -2,8 +2,12 @@ import 'package:flutter/material.dart';
 
 class WeatherScreen extends StatefulWidget {
   @override
-  State<StatefulWidget> createState() {
-    // TODO: implement createState
-    throw UnimplementedError();
+  State<WeatherScreen> createState() => _WeatherScreenState();
+}
+
+class _WeatherScreenState extends State<WeatherScreen> {
+  @override
+  Widget build(BuildContext context) {
+    return Container();
   }
 }
