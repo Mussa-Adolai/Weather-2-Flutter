@@ -46,7 +46,10 @@ class _currentWeatherState extends State<currentWeather> {
         child: TextField(
           focusNode: fNode,
           decoration: InputDecoration(
-            border: OutlineInputBorder(
+            enabledBorder: OutlineInputBorder(
+              borderSide:
+                  BorderSide(width: 3, color: Colors.white //<-- SEE HERE
+                      ),
               borderRadius: BorderRadius.all(
                 Radius.circular(10.0),
               ),
