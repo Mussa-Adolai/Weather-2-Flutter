@@ -8,6 +8,9 @@ class WeatherApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: HomePage(),
+      theme: ThemeData(
+        textTheme: Theme.of(context).textTheme.apply(bodyColor: Colors.white),
+      ),
     );
   }
 }

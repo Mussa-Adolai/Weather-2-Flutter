@@ -31,6 +31,7 @@ class _currentWeatherState extends State<currentWeather> {
   @override
   Widget build(BuildContext context) {
     var fNode = FocusNode();
+
     return GestureDetector(
       child: GlowContainer(
         height: MediaQuery.of(context).size.height - 230,
@@ -46,16 +47,46 @@ class _currentWeatherState extends State<currentWeather> {
         child: TextField(
           focusNode: fNode,
           decoration: InputDecoration(
-            enabledBorder: OutlineInputBorder(
-              borderSide:
-                  BorderSide(width: 3, color: Colors.white //<-- SEE HERE
-                      ),
+            filled: true,
+            fillColor: Colors.white,
+            // enabledBorder: OutlineInputBorder(
+            //   borderSide: BorderSide(
+            //     width: 3.0, color: Colors.cyan,
+            //   )
+            // ),
+            border: OutlineInputBorder(
               borderRadius: BorderRadius.all(
                 Radius.circular(10.0),
               ),
             ),
             hintText: 'Enter a city',
           ),
+          onSubmitted: (value) {
+            var temp;
+
+            if (temp == null) {
+              showDialog(
+                context: context,
+                builder: (BuildContext context) {
+                  return AlertDialog(
+                    backgroundColor: Colors.white,
+                    title: Text("City is not found !"),
+                    content: Text(
+                      "Please check the city name",
+                    ),
+                    actions: [
+                      TextButton(
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                        child: Text('Ok'),
+                      )
+                    ],
+                  );
+                },
+              );
+            }
+          },
         ),
       ),
     );
