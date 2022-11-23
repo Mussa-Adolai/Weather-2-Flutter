@@ -32,10 +32,9 @@ class currentWeather extends StatefulWidget {
 
 class _currentWeatherState extends State<currentWeather> {
   @override
+  var fNode = FocusNode();
+  bool searchBar = false;
   Widget build(BuildContext context) {
-    var fNode = FocusNode();
-    bool searchBar = false;
-
     return GestureDetector(
       child: GlowContainer(
         height: MediaQuery.of(context).size.height - 230,
@@ -49,10 +48,9 @@ class _currentWeatherState extends State<currentWeather> {
         color: Color(0xff00A1ff),
         spreadRadius: 5.0,
         child: Column(
-          children: [
+          children: <Widget>[
             Container(
-              //searchBar==false;
-              child: searchBar!
+              child: searchBar
                   ? TextField(
                       focusNode: fNode,
                       decoration: InputDecoration(
@@ -112,7 +110,9 @@ class _currentWeatherState extends State<currentWeather> {
                             GestureDetector(
                               onTap: () {
                                 searchBar = true;
-                                setState(() {});
+                                setState(() {
+                                  searchBar = true;
+                                });
                                 print('text F pressed');
                                 fNode.requestFocus();
                               },
@@ -121,6 +121,7 @@ class _currentWeatherState extends State<currentWeather> {
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 30.0,
+                                  color: Colors.white,
                                 ),
                               ),
                             ),

@@ -9,7 +9,7 @@ class WeatherApp extends StatelessWidget {
     return MaterialApp(
       home: HomePage(),
       theme: ThemeData(
-        textTheme: Theme.of(context).textTheme.apply(bodyColor: Colors.white),
+        textTheme: Theme.of(context).textTheme.apply(bodyColor: Colors.black),
       ),
     );
   }
