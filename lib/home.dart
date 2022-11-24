@@ -31,7 +31,6 @@ class currentWeather extends StatefulWidget {
 }
 
 class _currentWeatherState extends State<currentWeather> {
-  @override
   var fNode = FocusNode();
   bool searchBar = false;
   Widget build(BuildContext context) {
@@ -110,9 +109,7 @@ class _currentWeatherState extends State<currentWeather> {
                             GestureDetector(
                               onTap: () {
                                 searchBar = true;
-                                setState(() {
-                                  searchBar = true;
-                                });
+                                setState(() {});
                                 print('text F pressed');
                                 fNode.requestFocus();
                               },
@@ -133,6 +130,69 @@ class _currentWeatherState extends State<currentWeather> {
                         ),
                       ],
                     ),
+            ),
+            Container(
+              margin: EdgeInsets.only(top: 10.0),
+              padding: EdgeInsets.all(10.0),
+              decoration: BoxDecoration(
+                border: Border.all(width: 0.2, color: Colors.white),
+                borderRadius: BorderRadius.circular(30.0),
+              ),
+              child: Text(
+                'Updated',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+            Container(
+              height: 235,
+              child: Stack(
+                children: [
+                  Image(
+                    image: AssetImage('assets/sunny.png'),
+                    fit: BoxFit.fill,
+                  ),
+                  Positioned(
+                    bottom: 0.0,
+                    right: 0.0,
+                    left: 0.0,
+                    child: Center(
+                      child: Column(
+                        children: [
+                          GlowText(
+                            "18",
+                            style: TextStyle(
+                              color: Colors.white,
+                              height: 0.1,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 40,
+                            ),
+                          ),
+                          Text(
+                            city,
+                            style: TextStyle(
+                              fontSize: 19,
+                              color: Colors.white,
+                            ),
+                          ),
+                          Text(
+                            'Nov 24 2022',
+                            style: TextStyle(
+                              fontSize: 19,
+                              color: Colors.white,
+                            ),
+                          ),
+                          Divider(
+                            color: Colors.white,
+                          ),
+                        ],
+                      ),
+                    ),
+                  )
+                ],
+              ),
             ),
           ],
         ),
