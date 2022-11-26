@@ -33,6 +33,7 @@ class currentWeather extends StatefulWidget {
 class _currentWeatherState extends State<currentWeather> {
   var fNode = FocusNode();
   bool searchBar = false;
+  @override
   Widget build(BuildContext context) {
     return GestureDetector(
       child: GlowContainer(
@@ -147,7 +148,7 @@ class _currentWeatherState extends State<currentWeather> {
               ),
             ),
             Container(
-              height: 235,
+              height: 20,
               child: Stack(
                 children: [
                   Image(
@@ -173,19 +174,54 @@ class _currentWeatherState extends State<currentWeather> {
                           Text(
                             city,
                             style: TextStyle(
-                              fontSize: 19,
+                              fontSize: 25,
                               color: Colors.white,
                             ),
                           ),
                           Text(
                             'Nov 24 2022',
                             style: TextStyle(
-                              fontSize: 19,
+                              fontSize: 18,
                               color: Colors.white,
                             ),
                           ),
                           Divider(
                             color: Colors.white,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Column(
+                                children: [
+                                  Icon(
+                                    CupertinoIcons.wind,
+                                    color: Colors.white,
+                                  ),
+                                  Text('50' 'km/h'),
+                                  Text('Wind'),
+                                ],
+                              ),
+                              Column(
+                                children: [
+                                  Icon(
+                                    CupertinoIcons.drop,
+                                    color: Colors.white,
+                                  ),
+                                  Text('50' '%'),
+                                  Text('Humidity'),
+                                ],
+                              ),
+                              Column(
+                                children: [
+                                  Icon(
+                                    CupertinoIcons.cloud_drizzle_fill,
+                                    color: Colors.white,
+                                  ),
+                                  Text('50' 'km/h'),
+                                  Text('Rain'),
+                                ],
+                              ),
+                            ],
                           ),
                         ],
                       ),
