@@ -33,7 +33,7 @@ class currentWeather extends StatefulWidget {
 class _currentWeatherState extends State<currentWeather> {
   var fNode = FocusNode();
   bool searchBar = false;
-  @override
+  // @override
   Widget build(BuildContext context) {
     return GestureDetector(
       child: GlowContainer(
@@ -148,7 +148,8 @@ class _currentWeatherState extends State<currentWeather> {
               ),
             ),
             Container(
-              height: 20,
+              height: 280,
+              // color: Colors.brown,
               child: Stack(
                 children: [
                   Image(
@@ -156,9 +157,9 @@ class _currentWeatherState extends State<currentWeather> {
                     fit: BoxFit.fill,
                   ),
                   Positioned(
-                    bottom: 0.0,
-                    right: 0.0,
-                    left: 0.0,
+                    bottom: 0,
+                    left: 0,
+                    right: 0,
                     child: Center(
                       child: Column(
                         children: [
@@ -185,50 +186,68 @@ class _currentWeatherState extends State<currentWeather> {
                               color: Colors.white,
                             ),
                           ),
-                          Divider(
-                            color: Colors.white,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              Column(
-                                children: [
-                                  Icon(
-                                    CupertinoIcons.wind,
-                                    color: Colors.white,
-                                  ),
-                                  Text('50' 'km/h'),
-                                  Text('Wind'),
-                                ],
-                              ),
-                              Column(
-                                children: [
-                                  Icon(
-                                    CupertinoIcons.drop,
-                                    color: Colors.white,
-                                  ),
-                                  Text('50' '%'),
-                                  Text('Humidity'),
-                                ],
-                              ),
-                              Column(
-                                children: [
-                                  Icon(
-                                    CupertinoIcons.cloud_drizzle_fill,
-                                    color: Colors.white,
-                                  ),
-                                  Text('50' 'km/h'),
-                                  Text('Rain'),
-                                ],
-                              ),
-                            ],
-                          ),
                         ],
                       ),
                     ),
-                  )
+                  ),
                 ],
               ),
+            ),
+            Divider(
+              color: Colors.white,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: <Widget>[
+                Column(
+                  children: [
+                    Icon(
+                      CupertinoIcons.wind,
+                      color: Colors.white,
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Text('50' + 'km/h'),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Text('Wind'),
+                  ],
+                ),
+                Column(
+                  children: [
+                    Icon(
+                      CupertinoIcons.drop,
+                      color: Colors.white,
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Text('50' + '%'),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Text('Humidity'),
+                  ],
+                ),
+                Column(
+                  children: [
+                    Icon(
+                      CupertinoIcons.cloud_drizzle_fill,
+                      color: Colors.white,
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Text('50' + 'km/h'),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Text('Rain'),
+                  ],
+                ),
+              ],
             ),
           ],
         ),
