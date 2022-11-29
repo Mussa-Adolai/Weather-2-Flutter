@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_glow/flutter_glow.dart';
+import 'baseWeatherData.dart';
 
 String city = "London";
 
@@ -219,46 +220,6 @@ class _currentWeatherState extends State<currentWeather> {
           ],
         ),
       ),
-    );
-  }
-}
-
-class WeatherDataColumn extends StatelessWidget {
-  WeatherDataColumn(
-      {required this.weatherIcon, required this.wInfo, required this.wSection});
-  late final IconData weatherIcon;
-  late final String wInfo;
-  late final String wSection;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        SizedBox(height: 10),
-        Icon(
-          // CupertinoIcons.drop,
-          weatherIcon,
-          color: Colors.white,
-        ),
-        SizedBox(
-          height: 10,
-        ),
-        Text(
-          wInfo,
-          style: TextStyle(
-            color: Colors.white,
-          ),
-        ),
-        SizedBox(
-          height: 10,
-        ),
-        Text(
-          wSection,
-          style: TextStyle(
-            color: Colors.white,
-          ),
-        ),
-      ],
     );
   }
 }
