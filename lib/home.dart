@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_glow/flutter_glow.dart';
 import 'baseWeatherData.dart';
+import 'detail_page.dart';
 
 String city = "London";
 
@@ -18,6 +19,7 @@ class _HomePageState extends State<HomePage> {
       body: Column(
         children: <Widget>[
           currentWeather(),
+          TodayWeather(),
         ],
       ),
     );
@@ -38,7 +40,8 @@ class _currentWeatherState extends State<currentWeather> {
   Widget build(BuildContext context) {
     return GestureDetector(
       child: GlowContainer(
-        height: MediaQuery.of(context).size.height - 230,
+        //
+        // height: MediaQuery.of(context).size.height - 230,
         margin: EdgeInsets.all(2.0),
         padding: EdgeInsets.only(top: 60.0, left: 30.0, right: 30.0),
         glowColor: Color(0xff00A1ff),
@@ -219,6 +222,61 @@ class _currentWeatherState extends State<currentWeather> {
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class TodayWeather extends StatelessWidget {
+  const TodayWeather({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(
+        top: 10,
+        left: 30,
+        right: 30,
+      ),
+      child: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                'Today',
+                style: TextStyle(
+                  fontSize: 25,
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (BuildContext context) {
+                      return detailPage();
+                    }),
+                  );
+                },
+                child: Row(
+                  children: [
+                    Text(
+                      '7 Days',
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: Colors.grey,
+                      ),
+                    ),
+                    Icon(Icons.arrow_forward_ios_outlined,
+                        color: Colors.grey, size: 15),
+                  ],
+                ),
+              ),
+            ],
+          )
+        ],
       ),
     );
   }
