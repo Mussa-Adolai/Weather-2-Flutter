@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 class WeatherDataColumn extends StatelessWidget {
   WeatherDataColumn(
-      {required this.weatherIcon, required this.wInfo, required this.wSection});
-  late final IconData weatherIcon;
+      {this.weatherIcon, required this.wInfo, required this.wSection});
+  late final IconData? weatherIcon;
   late final String wInfo;
   late final String wSection;
 
