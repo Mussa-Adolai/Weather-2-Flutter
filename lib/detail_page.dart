@@ -3,6 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_glow/flutter_glow.dart';
 import 'baseWeatherData.dart';
 
+const dayStyle = TextStyle(
+  fontSize: 20,
+  color: Colors.white,
+);
+
 class detailPage extends StatelessWidget {
   const detailPage({Key? key}) : super(key: key);
 
@@ -152,7 +157,7 @@ class detailPage extends StatelessWidget {
                           ),
                           WeatherDataColumn(
                             weatherIcon: CupertinoIcons.cloud_drizzle,
-                            wInfo: '50 km/h',
+                            wInfo: '50 %',
                             wSection: 'Rain',
                           ),
                         ],
@@ -162,7 +167,60 @@ class detailPage extends StatelessWidget {
                 ),
               ],
             ),
-          )
+          ),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.only(top: 15),
+              child: ListView.builder(
+                //padding: EdgeInsets.only(top: 30),
+                itemBuilder: (BuildContext context, int index) {
+                  return Padding(
+                    padding:
+                        const EdgeInsets.only(left: 20, right: 20, bottom: 19),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'Wed',
+                          style: dayStyle,
+                        ),
+                        Container(
+                          //color: Colors.brown,
+                          // width: 135,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Image.asset(
+                                'assets/sunny.png',
+                                width: 40,
+                              ),
+                              Text(
+                                'Clear',
+                                style: dayStyle,
+                              )
+                            ],
+                          ),
+                        ),
+                        Row(
+                          children: [
+                            Text(
+                              '+28\u00B0',
+                              style: dayStyle,
+                            ),
+                            SizedBox(width: 5),
+                            Text(
+                              '+19\u00B0',
+                              style: dayStyle,
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  );
+                },
+              ),
+            ),
+          ),
         ],
       ),
     );
