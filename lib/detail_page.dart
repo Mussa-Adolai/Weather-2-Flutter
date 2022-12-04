@@ -78,12 +78,6 @@ class detailPage extends StatelessWidget {
                           ),
                         ),
                       ),
-                      // Image(
-                      //   image: AssetImage('assets/sunny.png'),
-                      //   //fit: BoxFit.fill,
-                      //   height: 200,
-                      //   width: 200,
-                      // ),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisSize: MainAxisSize.min,
@@ -120,7 +114,7 @@ class detailPage extends StatelessWidget {
                             ),
                           ),
                           SizedBox(
-                            height: 10,
+                            height: 15,
                           ),
                           Text(
                             'Claud',
